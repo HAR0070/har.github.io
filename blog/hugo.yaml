@@ -1,0 +1,22 @@
+baseURL: "https://har0070.github.io/har.github.io/"
+languageCode: "en-us"
+title: "Step1 to Autonomous cars"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: "Step1 to Autonomous cars"
+  description: "This work is about converting any normal vehicle to fully drive by wire and make it follow a reference trajectory"
+  defaultTheme: auto
+  ShowReadingTime: true
+  ShowCodeCopyButtons: true
+  ShowToc: true
