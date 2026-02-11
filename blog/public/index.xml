@@ -6,6 +6,17 @@
     <description>Recent content on Step1 to Autonomous cars</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/har.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Step1 to Autonomy</title>
+      <link>http://localhost:1313/har.github.io/posts/hello-world/</link>
+      <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/hello-world/</guid>
+      <description>&lt;h2 id=&#34;whats-in-here&#34;&gt;Whats in here&lt;/h2&gt;
+&lt;p&gt;The step 1 is to understand the platform you are working with, this article is for those who are trying to convert a normal vehicle to autonomous vehicle for research/testing purposes. I would be sharing ideas on how I approached the problem and alternatives with good references I found along the way.&lt;/p&gt;
+&lt;p&gt;This work is majorly on translating hardware system to seamlessly interface with software, specifically in context of electric cars.
+Starting with basic understanding of the electric vehicle powertrain to implementing software backbone enabling the vehicle to track reference trajectory, with provision for safety override by the user.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

@@ -3,6 +3,19 @@ Showcasing my builds
 
 Play book to convert manual cars to drive by wire.
 
+----------------
+who actually  -- people to whom u send the link to -- recruiters
+  - How good is my fundamentals
+  - They will mostly scroll through and look through the images and graphs -- what is happening
+  - So there should be good amount of pictorial representations  - and correct explanations
+
+  Who is expected reader - people who r trying to convert a normal vehicle to autonomous vehicle for research/testing purposes
+    - what do they look for - ideas on how to try out things - and references to them  (not a tutorial)
+    - What do I share - Fundamental ideas / how to get started in each aspect
+
+  If anyone have corrections/suggestions -- or would like to contribute -- connect with me -
+-----------------
+
 About the vehicle
     - general specs
     - power electronics part - motor + controller -- mainly how the control algorithm works -- time delays involved -- expected system behaviour
@@ -56,82 +69,17 @@ This algorithm is briefly mentioned mainly to highlight parameter choices and th
 
 ( all the edge cases - and limits for the  -  torque control)
 First we will delve into motor torque rpm curve
-    - Firs differentiation is between regen braking and plunging - these are 2 regions of operation
-      in plunging the air gap flux created by the 3phase current in the stator coil will be oposite to the rotation of rotor
-        - The braking energy is dicipated as heat in the machine itself -
-        -
-      in regen the flux created by 3phase current will be ahead of stator coil - creating negative slip
-        - in regen the energy can be pushed back to the source (if allowed) -- this is how the turbines generate energy
-
-      Which one to use
-      - The vehicle can be operated in majorly 2 ways
-        Regen active - When pedal is at 0 position - nominally regenerative braking is applied according to the braking power map
-            This would mean that majority of decceleration will be handled by regen and we dont need to initiate manual braking very often.
-            The amount of regenerative braking is usually pre-set or is a constant lookup map wrt to rpm -- lower torque values for higher rpm - to limit the amount of regenerative current pushed back to the battery.
-
-        Plunging brake - Treating
-        Manual brakes can be used to assist the vehicle's regen/plunging limits - but electrical braking have faster response
-        and only delay is due to communication and added brake smoothing delay (brake ramp rate limit etc ... ) eg. brake rate, brake release rate ...
-        Hence its good practice to combine both of them to achieve faster response.
-        While regenerative braking doesn't allow dynamic control of rate of braking - this is possible with plunging brake, more or less its same as normal braking behaviour
-
-
-      Vehicle control comes in different modes -- speed control or torque control
-        - Speed mode is only PID loop on top of torque control - all FOC control algorithms track torque references
-        - This torque reference goes through multiple filter before being finalized for FOC reference.
-        -
-
-      Power limitation of the induction motor
-      - variable frequency drive and
-      - Understanding what control algorithm the motor controller uses helps you identify what are limits of your vehicle easier.
-
-      If using a PMSM motor
-      - The
-
-  Vehicle specs - Vehicle control loop design -- and parameter lists
-
-FOC model - used by the motor controller  -- block diag https://in.mathworks.com/help/mcb/gs/implement-motor-speed-control-by-using-field-oriented-control-foc.html
-    - The motor controller has set of checks and parameters -- output of which is a reference torque profile
-    - Motor controller had FOC in torque control mode
-
-    The throttle pedal / can throttle command is giving reference for required torque
-    Parameters defining user comfort in manual driving  -- but not so in control by wire system
-      Accel rate,  accel release rate -- time delta to ramp up/ down the torque
-      Brake rate, brake release rate  --
-      Neutral braking,  Neutral braking taper speed --
-
-    Regenerative braking related Parameters
-      Drive current limit  -- kept smaller than the brake current limit
-      Regen current limit  -- regenerative braking is involuntary -- applied when throttle is release
-      Brake current limit -- Active braking on command
-      Power limit map -- Steady state working rpm and change power as a % of max rated power
-
-    Saftey parameters
-      Under votlage, over voltage --  Initiates emergency braking
-      Current limits for drive and regen -- Caps the throttle request
-
-    CANOpen
-      CANOpen interlock
-      CANOpen init
-      Heart beats, baud rate, timeout
-
 
 
 The vehicle is made fully drive by wire using an additional actuator to control the steering and can communication with the motor controller using CANOpen protocol.
-The steering uses CubeMars AK80-8 motor for actuation , which is a dual encoder brushless dc motor , with rated torque of 10Nm, operated in speed mode using, normal CAN
+
 
 The can receiver for CubeMars, vehicle and Radar is a CANFD device, were buffer is stored and feedback messages can be requested. Device driver is written in cpp.
 There are higher level device specific driver codes, and ros packages to communicate steering, acceleration and regenerative braking requests.
 
-The steering column was kept intact and mounts were designed to keep optimal loading on the steering column. This was a retrofit gear assembly designed and manufactured using laser cutting, metal bushing, machining, welding and 3D printing.
-  During testing it was found that the Cubemars motor has unexpect high jitter in position control mode
-  Hence we decided to use position control with PID on top of velocity mode control on motor
-
   Cubemars parameters - baud rate, feedback freq , current limits, rpm limits, can timeout ()   -ch
 
-  PID response graphs are as shown -- the controller parameters are --
-  -- Code for the arduino based controller - LINK
-  -- Code for the CANFD device based controller - LINK
+
 
 
 The IMU used is fixposition visual inertial navigation unit with RTK corrections from Survey of India CORS portal- with fusion working at 200Hz, with drift of angular drift of 0.1 deg / hour. Velocities used are bias corrected and in ENU frame,
