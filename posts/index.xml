@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Step1 to Autonomous cars</title>
-    <link>https://har0070.github.io/posts/</link>
+    <link>https://har0070.github.io/har.github.io/posts/</link>
     <description>Recent content in Posts on Step1 to Autonomous cars</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://har0070.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://har0070.github.io/har.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Step1 to Autonomy</title>
-      <link>https://har0070.github.io/posts/hello-world/</link>
+      <link>https://har0070.github.io/har.github.io/posts/hello-world/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>https://har0070.github.io/posts/hello-world/</guid>
+      <guid>https://har0070.github.io/har.github.io/posts/hello-world/</guid>
       <description>&lt;h2 id=&#34;whats-in-here&#34;&gt;Whats in here&lt;/h2&gt;
 &lt;p&gt;The step 1 is to understand the platform you are working with, this article is for those who are trying to convert a normal vehicle to autonomous vehicle for research/testing purposes. I would be sharing ideas on how I approached the problem and alternatives with good references I found along the way.&lt;/p&gt;
 &lt;p&gt;This work is majorly on translating hardware system to seamlessly interface with software, specifically in context of electric cars.
