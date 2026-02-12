@@ -20,6 +20,10 @@ Showcasing my builds
 How to do end-to-end autonomy
     -
 
+To do
+- Steering motor PID response graph
+- IMU noise graph
+- modelling part and software part
 
 Objectives / goal
 The vehicle we have in iit madras - autonomous systems lab is a normal electric vehicle platform
