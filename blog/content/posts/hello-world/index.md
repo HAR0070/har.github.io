@@ -3,6 +3,7 @@
 title: "Step1 to Autonomy"
 date: 2026-02-10
 draft: false
+math: true
 ---
 
 ## Whats in here
@@ -20,15 +21,14 @@ This is divided into sections
 ## The Vehicle
 
 About the vehicle
-    * General specs
-        -- make it a table
-        Motor type                          Induction motor
-        Mass of vehicle                     600Kg
-        Motor controller                    FOC controller, switching freq-  , power rating , link
-        Access we have                      To all the configurable parameters in motor controller
-        Max speed, acceleration and brake   30Kmph ,     
-        Battery type and voltage            LFP battery, 50V battery,
-        Power curve of motor                
+
+| General Specs |  |
+|------|------|
+| Motor type |  AC Induction motor, power rating 5Kw |
+| Mass of vehicle | 660 Kg |
+| Motor controller  |  Curtis 1234SE , Advanced FOC controller |    
+| Max speed, acceleration and brake | 30Kmph , 1m/s2 , 2.5m/s2 |  
+| Battery type and voltage | LFP battery, 50V battery |  
 
 ### Power curve and FOC
 Objective is to understand what to expect from the powertrain/drivetrain of the vehicle.
@@ -88,7 +88,7 @@ Now an obvious way to brake is rotating the air gap flux backward - both the loa
   - Now torque and rpm are opposite, also you are providing energy to generate flux, all this energy is dissipated as heat in the machine itself and is quite stressful for the machine if done for long.
 
 Now instead of going all the way to rotating opposite to rotor - as you might have guessed keeping flux slightly behind the rotor will also cause braking, but now we have great advantage, remember flux is always a mutual phenomenon between 2 coils hence here its like the rotor is pulling the stator (same normal operation but interchange stator and rotor), that means rotor is providing the input power ie. we are converting vehicles KE to electrical energy and this energy can be fed back into battery - a win win.
-Its very easy to implement you only need to bother how to feed back power to battery.
+Its very easy to implement you only need to bother how to feed back power to battery. But by this very reason plunging brakes are much stronger.
 
 {{< figure
   src="images/regen_vs_braking.png"
@@ -96,57 +96,29 @@ Its very easy to implement you only need to bother how to feed back power to bat
   caption="3 operation regions for a induction motor, notice the slip axis values"
 >}}
 
+Generally all vehicle applies regenerative braking at 0 throttle according to the regen power map. Majority of deceleration will be handled by regen and we don't need to initiate manual braking very often. The amount of regenerative braking is usually pre-set or is a constant lookup map wrt to rpm - based on the amount of current battery can accept.
 
-#### Which one to use
-- The vehicle can be operated in majorly 2 ways
-Regen active - When pedal is at 0 position - nominally regenerative braking is applied according to the braking power map
-  This would mean that majority of decceleration will be handled by regen and we dont need to initiate manual braking very often.
-  The amount of regenerative braking is usually pre-set or is a constant lookup map wrt to rpm -- lower torque values for higher rpm - to limit the amount of regenerative current pushed back to the battery.
-
-Plunging brake - Treating
-Manual brakes can be used to assist the vehicle's regen/plunging limits - but electrical braking have faster response
-and only delay is due to communication and added brake smoothing delay (brake ramp rate limit etc ... ) eg. brake rate, brake release rate ...
-Hence its good practice to combine both of them to achieve faster response.
-While regenerative braking doesn't allow dynamic control of rate of braking - this is possible with plunging brake, more or less its same as normal braking behaviour
-
-Vehicle control comes in different modes -- speed control or torque control
-- Speed mode is only PID loop on top of torque control - all FOC control algorithms track torque references
-- This torque reference goes through multiple filter before being finalized for FOC reference.
-
-Usually this is not in users control and vehicles come with torque control pedal, hence we also went ahead with torque control
+In case of extreme braking requirement its good practice to combine plunging brake and manual brake as plunging brake will have minimal/no delay (if no brake smoothing for user comfort). Some motor controllers provide emergency braking features.
 
 ### Motor controller smoothing parameters
-    Vehicle control comes in different modes -- speed control or torque control
-      - Speed mode is only PID loop on top of torque control - all FOC control algorithms track torque references
-      - This torque reference goes through multiple filter before being finalized for FOC reference.
-      -
+Now we will discuss about major design choices for throttle and braking limits for user comfort.
 
-    Vehicle specs - Vehicle control loop design -- and parameter lists
+Vehicle control comes in different modes -- speed control or torque control
+  - Speed mode is only PID loop on top of torque control - all FOC control algorithms track torque references
+  - This torque reference goes through multiple filter before being finalized for FOC reference.
+  - These parameters values are what we are looking for while system modeling.
 
-    FOC model - used by the motor controller  -- block diag https://in.mathworks.com/help/mcb/gs/implement-motor-speed-control-by-using-field-oriented-control-foc.html
-    - The motor controller has set of checks and parameters -- output of which is a reference torque profile
-    - Motor controller had FOC in torque control mode
+Actuator deadband, max value, throttle map, accel rate, accel release rate , delay to ramp up/down the reference. (same set for brakes)
+Regen braking power map (rpm vs regen), regen braking % limit (wrt drive current), same for plunging brake
+Drive current limit (motors power vs rpm map). Emergency braking strength.
+Neutral braking,  Neutral braking taper speed, Regen taper speed (at very low rpm regen isn't effective).
 
-    The throttle pedal / can throttle command is giving reference for required torque
-    Parameters defining user comfort in manual driving  -- but not so in control by wire system
-    Accel rate,  accel release rate -- time delta to ramp up/ down the torque
-    Brake rate, brake release rate  --
-    Neutral braking,  Neutral braking taper speed --
-
-    Regenerative braking related Parameters
-    Drive current limit  -- kept smaller than the brake current limit
-    Regen current limit  -- regenerative braking is involuntary -- applied when throttle is release
-    Brake current limit -- Active braking on command
-    Power limit map -- Steady state working rpm and change power as a % of max rated power
-
-    Safety parameters
-    Under voltage, over voltage --  Initiates emergency braking
-    Current limits for drive and regen -- Caps the throttle request
-
-    CANOpen
-    CANOpen interlock
-    CANOpen init
-    Heart beats, baud rate, timeout
+In our case, we use speed mode, with regenerative braking active at 100% of charge power (to current reduces across rpm since battery charging power is constant)
+Regenerative braking related Parameters
+Drive current limit  -- kept smaller than the brake current limit
+Regen current limit  -- regenerative braking is involuntary -- applied when throttle is release
+Brake current limit  -- Active braking on command
+Power limit map      -- Obtained from motors load testing from manufacturer
 
 
 ## Steering setup
@@ -156,18 +128,12 @@ Usually this is not in users control and vehicles come with torque control pedal
  caption="A DC brushless motor is attached to the steering, converting manual steering to steer by wire"
 >}}
 
--Actuator sizing
-  This part involves identifying what is the load scenario for steering actuator
-  This can be done in multiple ways, but essentially measure the torque required throughout the profile isn't required.
+Actuator sizing:
+  This part involves identifying what is the load scenario for steering actuator, this can be done in multiple ways, but essentially measure the torque required throughout the profile isn't required. Rather its about identifying the outer bounds of steering torque limits, through literature for track vehicles, steering torque would be maximum ~3Nm and normally ~1Nm. Given we run only in road at low speeds - this is perfectly valid limit in our case.
 
-  rather its about identifying the outer bounds of steering torque limits, through literature for track vehicles, steering torque would be maximum ~3Nm
-  given we run only in road at low speeds - the same is taken as the limit in our case.
+We had AK80-8 CubeMars motor to work with, and it satisfied torque and rpm requirements. This is a brushless dc motor with dual encoder and can save its position within 360 deg of absolute 0. But the steering rotates more than 720 degree to each side in our case hence we have added a absolute position encoder(+-60 deg) with a gear ration of 12. Communication with the motor is using normal can, the motor has multiple modes of operation position, speed, torque etc...
 
-- Expected torque curve - There are 2 UV joints involved in the steering, placed perpendicular to each other, the worm gear ratio for the steering is not known.
-
-- We had AK80-8 CubeMars motor to work with, and it satisfied torque and rpm requirements. This is a brushless dc motor with dual encoder and can save its position within 360 deg of absolute 0. But the steering rotates more than 720 degree to each side in our case hence we have added a absolute position encoder(+-60 deg) with a gear ration of 12.
-- Communication with the motor is using normal can, the motor has multiple modes of operation position, speed, torque etc...
-- During testing it was found that the motor has unpredictable high jitter in position control mode, hence position control with PID on top of velocity mode control was designed.
+During testing it was found that the motor has unpredictable high jitter in position control mode, hence position control with PID on top of velocity mode control was designed.
 
 PID response graphs are as shown -- the controller parameters are --
 -- Code for the arduino based controller - LINK
@@ -176,11 +142,11 @@ PID response graphs are as shown -- the controller parameters are --
 - Design - It was decided to have a simple cad as steering column cad and actual system didn't match.
 First design choices involved choosing from belt drive or gears,
 Belt drive
-  - Adding a tensioner pully would give leway from alignment issues
-  - But higher number of components
+- Adding a tensioner pully would give leway from alignment issues
+- But higher number of components
 Gear drive
-  - Fewer components
-  - Need to maintain optimal load to keep the meshing tight
+- Fewer components
+- Need to maintain optimal load to keep the meshing tight
 
 I choose gear drive, with 1:1 gear ratio because our actuator could give more torque than required.
 Mounts were designed to keep optimal radial loading on the gears. This was a retrofit gear assembly designed and manufactured using laser cutting, metal bushing, machining, welding and 3D printing.
@@ -195,12 +161,26 @@ Objective : First reaction of the users while encountering a misbehaviour by the
 Given the problem there are majorly 2 methods to go about this
 
 Giving the user control to steering with some load acting against them.
-- LINK (https://pmc.ncbi.nlm.nih.gov/articles/PMC10451058/pdf/10.1177_0036850420950138.pdf) - As described here create a model of the steering system using the inertial parameters and treat the self aligning torque as disturbance and device a observer using which you can track the setpoint. And since the input torque is what is controller user can give external torque to drive the steering to his liking - given the tracking error reduces - but here there is no way to detect a user input since every external torque is a disturbance, and moreover driver has to apply much higher torque than normal driving. Similar works are - LINK (https://skoge.folk.ntnu.no/prost/proceedings/acc04/Papers/0378_ThA05.4.pdf)
+
+- [Model predictive control of steering torque in shared driving of autonomous vehicles](https://pmc.ncbi.nlm.nih.gov/articles/PMC10451058/pdf/10.1177_0036850420950138.pdf) - As described here create a model of the steering system using the inertial parameters and treat the self aligning torque as disturbance and device a observer using which you can track the setpoint. And since the input torque is what is controller user can give external torque to drive the steering to his liking - given the tracking error reduces - but here there is no way to detect a user input since every external torque is a disturbance, and moreover driver has to apply much higher torque than normal driving. Similar works are - [Vehicle State Estimation Using Steering Torque](https://skoge.folk.ntnu.no/prost/proceedings/acc04/Papers/0378_ThA05.4.pdf)
 
 Giving the user the whole vehicles control as he applies some torque on steering.
-- This aproach is to model the self aligning torque and add the inertia and damping components to identify the total torque required to be applied by the actuator - here the difficulty is - self alignment torque is a function of tire parameter, terrain and vehicle mass and lot of coefficients ...
 
-Add the eqn here --
+- This aproach is to model the self aligning torque and add the inertia and damping components to identify the total torque required to be applied by the actuator - here the difficulty is - self alignment torque is a function of tire parameter, terrain and vehicle mass that a lot of coefficients ...
+
+$$
+J_{eq} \ddot{\delta} + B_{eq} \dot{\delta} + \tau_{di} + \tau_f \operatorname{sign}(\dot{\delta}) = N_s \tau_m
+$$
+Where:
+
+* **$\delta$ (Delta):** The steering angle (position) of the wheels.
+* **$\ddot{\delta}$ and $\dot{\delta}$:** The steering angular acceleration and velocity, respectively.
+* **$J_{eq}$ (Equivalent Inertia):** The total rotational inertia of the system, combining the inertia of the steering column, motor rotor, and gears, reflected to the steering shaft.
+* **$B_{eq}$ (Equivalent Damping):** The viscous friction coefficient representing resistance proportional to speed (e.g., grease viscosity in gears).
+* **$\tau_{di}$ (Disturbance Torque):** The sum of external forces acting on the steering rack, primarily the **Self-Aligning Torque (SAT)** generated by the tire-road contact patch.
+* **$\tau_f$ (Coulomb Friction):** The static/dry friction torque inherent in the mechanical assembly (gears, bearings) that opposes motion direction.
+* **$N_s$:** The steering gear ratio (mechanical advantage of the steering column).
+* **$\tau_m$:** The electromagnetic torque generated by the steering actuator motor.
 
 Since we are operating at low speeds (25Kmph max) which makes linear approximations clearly valid, this is much less complicated.
 But still on trying to curve fit the data to the model, following difficulty were faced:
@@ -210,40 +190,75 @@ But still on trying to curve fit the data to the model, following difficulty wer
   * Presence of 2 UV joints in the steering rod.
   * Least square curve fitting is very prone to outliers
 
-Future work will include more effort into model based approach
+Future work will include more effort into model based approach. Current Approach to the problem is through Machine learning techniques.
 
-Approach to the problem - ML model selection and reasoning
 The problem is solved as a unsupervised one, there is no labeling provided for initiation of the takeover and end of it. For this I trained the model to predict the steering torque from data (imu and steering feedback). And if the required torque is higher than the predicted value by 1.5 times the local standard deviation continuously for few timesteps then driver takeover is initiated.
 
-tree based model is used - Xgb boost
+Test and Train dataset:
+The steering was controlled by joystick and the current and rpm of the steering motor was monitored along with steering commands. We drove the vehicle over distance of ~2km, this was considered as training data, next for a smaller distance an external opposing force was applied on the steering, this is taken as test data.
 
-- Data cleaning, testing and data creation
-- Expected torque curve - There are 2 UV joints involved in the steering, placed perpendicular to each other, the worm gear ratio for the steering is not known.s
-  - What all tests were conducted --
-  - Yaw cleaning, data segmentation wrt speed,
+A small snipet of data
+{{< figure
+ src="images/steering_torque_vs_rpm.png"
+ alt="Steering actuator"
+ caption="raw data showing steering torque and rpm, it can be seen that even to keep the steering at a position varying torque is required"
+>}}
 
-- Important features, varience bias check,  expected noise, - fine tuning - BO -
-  - . So
-  - First we need to estimate the noise in the data, to build a expectation on the accuracy of the model. This was done in few ways
-    -- an observer
-    -- moving average / exponential average
-    --
+To understand how much noise is there in data we can make some assumption
+ * signal is smooth, so deviation from the rolling mean is noise
+ * higher frequency components in the signal is noise
 
-- Data collection, train and test data -- performance on test data
-- Real life scenario
+{{< figure
+src="images/estimating_noise_steering_data.png"
+alt="Steering actuator"
+caption="Torque signal is reconstructed after removing higher frequency components from the power spectrum"
+>}}
 
-------------------------------------- V1 ---------------------------------
+Now that we have estimate of noise, various models can be tried out and based on wether its variance or bias issue, we can work further. I fitted DecisionTreeRegressor model to the data to understand the feature importance. In general found that current timestep data points are not enough for the prediction.
 
-Modeling experiments and results - example
-    - Sensor responses
-    - Vehicle modeling
-    - accel and brake
-    - Steering modeling
+Hence had to increase the feature vector space.
+- Iniital features were steering position, speed and acceleration. Vehicles roll, pitch, yaw, lateral velocity and longitudinal velocity.
+- Added features are vehicle sideslip angle and path curvature.
 
-Software stack
-    - What are requirements
-    - architecture diagram and Algorithms
-    - The why
-    - The how
-    - ability to expand
-    - Webots Demo, real Demo
+Then I performed autocorrelation and partial autocorrelation study on torque values. And subsequently added lag parameters by 1,2,3,4,5 and 10 steps, rolling mean and exponential mean, difference by 1,2,3,4,5 steps for all the parameters.
+
+By using GradientBoostingRegressor from sklearn, did K-fold spliting and trained the model to analyze the feature importance. Then from the above ~150 features dropped down to 30 top features. On these features I performed a gaussian process minimization to get optimal depth (2-14) and learning rate (log scale) and took parameters on stable location (12,13,14th iterations)
+
+{{< figure
+src="images/gp_minimize.png"
+alt="Steering actuator"
+caption="Notice that test error doesn't change much and we found that ~0.2Nm noise is present hence not a huge advantage is seen in gp minimization"
+>}}
+
+Finally while implementing 30 parameters were found to be hard to track, hence another reduction to get it to 10 variables was performed. And the 10 most important features came out to be
+* torque_lag_1
+* torque exponential moving avg 5 points
+* steering speed
+* steering speed lag 3 steps
+* position
+* position difference of 1 and 2 steps
+* steering acceleration difference of 3 and 4 steps
+* yaw difference on 1 step
+
+With these features the accuracy was good, during testing driver was comfortably able to takeover the steering.
+{{< figure
+ src="images/steering_takeover_pred.png"
+ alt="Steering actuator"
+ caption="Points shown in green are the prediction values from the ML model, the way the model is used, data leak is not posssible hence gives confidence on predictions. "
+>}}
+
+@note - steering motor had command timeout of ~1 second, and in earlier testings, post takeover the steering wheel would still move for 1 second, and it felt like driver had to exert so much force to overtake. Which was not the case. Initially I tackled this by giving 0 torque command immediately after overtake (before I realised timeout was the cause)
+
+-------------------------------------------
+
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    }
+  };
+</script>

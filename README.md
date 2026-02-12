@@ -1,60 +1,21 @@
 # har.github.io
 Showcasing my builds
+    ------------------------------------- V2 ---------------------------------
 
-Play book to convert manual cars to drive by wire.
+    Modeling experiments and results - example
+    - Sensor responses - IMU frequency response - show the IMU vibration
+      what all does the sensor do - in terms of fusion - RTK gps,  - acceleration has lot of vibration but velocity is clean and good. Comparison with vehicle odometry value
+    - Vehicle modeling (accel and brake)- in torque mode --  time delay, ramp rates -- show how well the model predicts the trajectory -- create a sequence of input command - check what vehicle does and what does the model do --
 
-----------------
-who actually  -- people to whom u send the link to -- recruiters
-  - How good is my fundamentals
-  - They will mostly scroll through and look through the images and graphs -- what is happening
-  - So there should be good amount of pictorial representations  - and correct explanations
+    - Steering modeling - PID response for step input while loaded -   sequence of input -- what steering does and what model does
 
-  Who is expected reader - people who r trying to convert a normal vehicle to autonomous vehicle for research/testing purposes
-    - what do they look for - ideas on how to try out things - and references to them  (not a tutorial)
-    - What do I share - Fundamental ideas / how to get started in each aspect
-
-  If anyone have corrections/suggestions -- or would like to contribute -- connect with me -
------------------
-
-About the vehicle
-    - general specs
-    - power electronics part - motor + controller -- mainly how the control algorithm works -- time delays involved -- expected system behaviour
-    - Parameters involved in modelling  (regen vs Plunging) (full operating region) (apreciate FOC slightly - vs a variable freq drive)
-    - Modelling experiments and results - example
-
-Steering setup
-    - Design
-    - Actuator sizing - selected actuator and specs
-    - Expected torque curve
-    - CAD
-    - Communication with actuator -
-    - System architecture diag
-
-Steering takeover Design
-    - How is this different from power steering sizing
-    - Approach to the problem - ML model selection and reasoning
-    - Data cleaning, data creation
-    - Important features, varience bias check,  expected noise, - fine tuning - BO -
-    - Data collection, train and test data -- performance on test data
-    - Real life scenario
-
-Vehicle drive by wire setup
-    - Interfaces
-    - CANOpen
-    - CANFD device - waveshare device -- clean driver code
-    - Control flow
-
-Software stack
-    - What are requirements
-    - architecture diagram and Algorithms
-    - The why
-    - The how
-    - ability to expand
-    - Webots Demo, real life Demo
-
-Hardware stack
-    -
-    -
+    Software stack
+        - What are requirements
+        - architecture diagram and Algorithms
+        - The why
+        - The how
+        - ability to expand
+        - Webots Demo, real Demo
 
 How to do end-to-end autonomy
     -

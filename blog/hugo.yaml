@@ -20,3 +20,9 @@ params:
   ShowReadingTime: true
   ShowCodeCopyButtons: true
   ShowToc: true
+  math: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
