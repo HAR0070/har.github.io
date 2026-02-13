@@ -6,45 +6,17 @@
     <description>Recent content in Bob the builder on Builds</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 13 Feb 2026 00:47:17 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Software and modeling</title>
-      <link>http://localhost:1313/posts/step2/</link>
-      <pubDate>Fri, 13 Feb 2026 00:47:17 +0530</pubDate>
-      <guid>http://localhost:1313/posts/step2/</guid>
-      <description>&lt;p&gt;Software stack&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;What are requirements&lt;/li&gt;
-&lt;li&gt;Architecture diagram and Algorithms&lt;/li&gt;
-&lt;li&gt;The why&lt;/li&gt;
-&lt;li&gt;The how&lt;/li&gt;
-&lt;li&gt;ability to expand&lt;/li&gt;
-&lt;li&gt;Webots Demo, real Demo&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Software stack, development and deployment
-ROS2 Jazzy, ubuntu 24.04 , C++ 17, Python 3.12, Webots&lt;/p&gt;
-&lt;p&gt;Major requirements of the software stack &amp;ndash;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Modular and templated&lt;/li&gt;
-&lt;li&gt;minimal middle ware dependence&lt;/li&gt;
-&lt;li&gt;Compliance to AUTOSAR C++ standards&lt;/li&gt;
-&lt;li&gt;Easily configurable&lt;/li&gt;
-&lt;li&gt;Interpretable&lt;/li&gt;
-&lt;li&gt;Good visualization and debugging&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Architecture diagram&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Step1 to Autonomy</title>
       <link>http://localhost:1313/posts/hello-world/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/posts/hello-world/</guid>
       <description>&lt;h2 id=&#34;whats-in-here&#34;&gt;Whats in here&lt;/h2&gt;
-&lt;p&gt;The step 1 is to understand the platform you are working with, this article is for those who are trying to convert a normal vehicle to autonomous vehicle for research/testing purposes. I would be sharing ideas on how I approached the problem and alternatives with good references I found along the way.&lt;/p&gt;
-&lt;p&gt;This work is majorly on translating hardware system to seamlessly interface with software, specifically in context of electric cars.
-Starting with basic understanding of the electric vehicle powertrain to implementing software backbone enabling the vehicle to track reference trajectory, with provision for safety override by the user.&lt;/p&gt;</description>
+&lt;p&gt;The step 1 is to understand the platform you are working with; this article is for those who are trying to convert a normal vehicle to an autonomous vehicle for research/testing purposes. I would be sharing ideas on how I approached the problem and alternatives with good references I found along the way.&lt;/p&gt;
+&lt;p&gt;This work is majorly on translating hardware systems to seamlessly interface with software, specifically in context of electric cars.
+Starting with a basic understanding of the electric vehicle powertrain to implementing a software backbone enabling the vehicle to track a reference trajectory, with a provision for safety override by the user.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

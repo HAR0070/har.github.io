@@ -7,10 +7,11 @@ title: "Bob the builder"
 <img src="/images/Harshin.jpeg" width="180"
      style="display:block; margin:40px auto; border-radius:50%;">
 
-# Harshin Stark
+# Harshin
 
 Autonomous systems engineer focused on drive-by-wire platforms, vehicle modeling, and control architecture.  
 
+Previously built electric race cars, systems for 15 Min fast charging battery and Ground effect UAVs.
 
 </div>
 

@@ -9,11 +9,12 @@ How to do end-to-end autonomy
 
 To do
 - Steering motor PID response graph - real time video and anotation - User feedback
+- Steering ML model -- interpretation of the parameters
 - IMU noise graph
 - vehicle feedback quality
 - Modeling part and software part
 - vehicle modelling -  show how well the model predicts the trajectory -- create a sequence of input command - check what vehicle does and what does the model do
-- Radar -- false detection -- and after rcs filter 
+- Radar -- false detection -- and after rcs filter
 
 
 
@@ -74,3 +75,35 @@ Model fitting
   This would limit your ability to complex theoritically analysis of the model.
 
   For learning models - the choice of independent and depended variables important, cleaning the data and collection good data
+
+
+  +++
+  title = 'Software and modeling'
+  date = 2026-02-13T00:47:17+05:30
+  draft = true
+  +++
+
+
+
+  Software stack
+  - What are requirements
+  - Architecture diagram and Algorithms
+  - The why
+  - The how
+  - ability to expand
+  - Webots Demo, real Demo
+
+
+  Software stack, development and deployment
+    ROS2 Jazzy, ubuntu 24.04 , C++ 17, Python 3.12, Webots
+
+  Major requirements of the software stack --
+  - Modular and templated
+  - minimal middle ware dependence
+  - Compliance to AUTOSAR C++ standards
+  - Easily configurable
+  - Interpretable
+  - Good visualization and debugging
+  -
+
+  Architecture diagram
