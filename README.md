@@ -2,53 +2,20 @@
 Showcasing my builds
     ------------------------------------- V2 ---------------------------------
 
-    Modeling experiments and results - example
-    - Sensor responses - IMU frequency response - show the IMU vibration
-      what all does the sensor do - in terms of fusion - RTK gps,  - acceleration has lot of vibration but velocity is clean and good. Comparison with vehicle odometry value
-    - Vehicle modeling (accel and brake)- in torque mode --  time delay, ramp rates -- show how well the model predicts the trajectory -- create a sequence of input command - check what vehicle does and what does the model do --
 
-    - Steering modeling - PID response for step input while loaded -   sequence of input -- what steering does and what model does
-
-    Software stack
-        - What are requirements
-        - architecture diagram and Algorithms
-        - The why
-        - The how
-        - ability to expand
-        - Webots Demo, real Demo
 
 How to do end-to-end autonomy
     -
 
 To do
-- Steering motor PID response graph
+- Steering motor PID response graph - real time video and anotation - User feedback
 - IMU noise graph
-- modelling part and software part
-
-Objectives / goal
-The vehicle we have in iit madras - autonomous systems lab is a normal electric vehicle platform
-
-The vehicle is powered by a low voltage battery Lithium ion battery pack, and has 3phase induction motor
-We have access to motor controller configuration. The motor controller uses FOC control algorithm.
-This algorithm is briefly mentioned mainly to highlight parameter choices and their impacts - and vehicle limitations.  
-
-( all the edge cases - and limits for the  -  torque control)
-First we will delve into motor torque rpm curve
+- vehicle feedback quality
+- Modeling part and software part
+- vehicle modelling -  show how well the model predicts the trajectory -- create a sequence of input command - check what vehicle does and what does the model do
+- Radar -- false detection -- and after rcs filter 
 
 
-The vehicle is made fully drive by wire using an additional actuator to control the steering and can communication with the motor controller using CANOpen protocol.
-
-
-The can receiver for CubeMars, vehicle and Radar is a CANFD device, were buffer is stored and feedback messages can be requested. Device driver is written in cpp.
-There are higher level device specific driver codes, and ros packages to communicate steering, acceleration and regenerative braking requests.
-
-  Cubemars parameters - baud rate, feedback freq , current limits, rpm limits, can timeout ()   -ch
-
-
-
-
-The IMU used is fixposition visual inertial navigation unit with RTK corrections from Survey of India CORS portal- with fusion working at 200Hz, with drift of angular drift of 0.1 deg / hour. Velocities used are bias corrected and in ENU frame,
-The IMU has a internal fusion engine running,  it starts with only RTK corrections are provided, the IMU considers  --- elements -- for fusion
 
 The final data quality is ensured:
   - Ensured that while not in motion IMU doesnt have non-explanable frequency response
@@ -107,14 +74,3 @@ Model fitting
   This would limit your ability to complex theoritically analysis of the model.
 
   For learning models - the choice of independent and depended variables important, cleaning the data and collection good data
-
-Steering modelling and testing
-  Data collection
-  Clear patterns
-  Related work -- power steering / steering assist  - also the observer based model
-  Machine learning model - bias varience / BO optimization /  feature importances -> explanation / validation set data results / real time video and anotation.
-  Edge cases - low speed is modelled differently -- by taking measurements from - and fitting wrt steering angle
-  User feedback
-
-Software stack, development and deployment
-  ROS2 Jazzy, ubuntu 24.04 , C++ 17, Python 3.12, Webots

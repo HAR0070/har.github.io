@@ -15,12 +15,10 @@ Starting with basic understanding of the electric vehicle powertrain to implemen
 This is divided into sections
   * Vehicle specifications and powertrain
   * Steering actuator and takeover strategy
-  * Modeling and vehicle drive by wire
+  * Modeling vehicle's drive by wire
   * Software stack and data structures
 
 ## The Vehicle
-
-About the vehicle
 
 | General Specs |  |
 |------|------|
@@ -248,6 +246,139 @@ With these features the accuracy was good, during testing driver was comfortably
 >}}
 
 @note - steering motor had command timeout of ~1 second, and in earlier testings, post takeover the steering wheel would still move for 1 second, and it felt like driver had to exert so much force to overtake. Which was not the case. Initially I tackled this by giving 0 torque command immediately after overtake (before I realised timeout was the cause)
+
+## Modeling vehicle's drive by wire
+
+Modeling experiments and results - example
+- Sensor responses - IMU frequency response - show the IMU vibration
+  what all does the sensor do - in terms of fusion - RTK gps,  - acceleration has lot of vibration but velocity is clean and good. Comparison with vehicle odometry value
+- Vehicle modeling (accel and brake)- in torque mode --  time delay, ramp rates -- --
+
+- Steering modeling - PID response for step input while loaded -   sequence of input -- what steering does and what model does
+
+### IMU data
+
+The IMU used is fixposition visual inertial navigation unit. It's is a self-contained product, all calculations and processes such as
+sampling, coning & sculling compensation and the sensor fusion algorithm run on board at 200Hz. RTK corrections are from Survey of India CORS portal. There is communication support through ethernet/wifi tcp, CAN and RS232. SDK support ros1 and ros2.
+
+| General Specs |  |
+|------|------|
+|Dynamic Drift Roll (°/hr) rms| 0.4|
+|Dynamic Drift Pitch (°/hr) rms| 0.4|
+|Drift Yaw (°/hr) | 0.4|
+|Velocity (m/s) | 0.1|
+|Accel Range (g)| ±20 g |
+|Accel Noise (mu g/√Hz)| 65 |
+|Gyro in run bias stability (deg / hr)| 2|
+|Gyro Noise (°/s/√Hz)| 0.003|
+
+If we publish the vehicle odometry, the IMU can integrate it into it's fusion.
+The RTK corrections are used to fine converge the IMU, post that RTK isn't required.
+
+To first understand the noise characteristics of the IMU we do a static reading. As you can see, there is no static noise.
+{{< figure
+  src="images/static_imu_vibration.png"
+  alt="static_imu_vibration"
+  caption="Static imu frequency power density check"
+>}}
+
+When the vehicle is moving the observed data is
+{{< figure
+  src="images/moving_imu_vibration.png"
+  alt="moving_imu_vibration"
+  caption="Moving imu frequency power density check"
+>}}
+
+@note - If you do resampling by mean - it acts as a low pass filter, also filling NAN with forward/backward fill or drop NAN will induce error - be thoughtful
+
+Now we need to check the frequency component at 2-5 Hz is signal or vibration / or how much of it is signal or vibration, few methods I deviced are
+* Record data while imu is in your hand and moving
+* Record data when vehicle is moving in different speeds
+* Look at data from other axis - if y axis spectrum matches z - mostly it's noise
+* Sample the imu at much higher rate and check PSD again
+
+What does a power of 0.06 mean? This represents the variance density of the signal at that specific frequency. ie. here around 2-3 hz there is variance concentration of 0.06 for every 1Hz bandwidth. To get the actual noise we should check the area under the PSD curve in this region, which comes out to be (intentionally not dealing with the units here for signal power).
+
+On applying simple jerk limit filter
+{{< figure
+  src="images/imu_jerk_limit.png"
+  alt="imu_jerk_limit"
+  caption="Moving imu z axis PSD check after applying jerk limits, shows very good characteristics, across 1.5 to 4Hz RMSE noise is 0.116m/s2"
+>}}
+
+{{< figure
+  src="images/imu_jerk_limit_ax.png"
+  alt="imu_jerk_limit"
+  caption="Moving imu x axis PSD check after applying jerk limits, shows very good characteristics, across 1.5 to 4Hz RMSE noise is 0.13m/s2"
+>}}
+
+@note - the logarithmic scale of x axis means, even lower value of PSD can cumulate into higher noise, hence I plotted the cumulative area under the curve to understand the contribution of noise across the spectrum.
+
+
+### Radar data
+We are using a SR75 radar, which is a high-precision FMCW radar. The radar emits a continuous radio signal, sweeping its frequency linearly (chirp) over a time period. Unlike pulsed radar.
+*Beat frequency formed by delayed echo gives the range
+*Doppler shift gives the velocity
+These are simultaneous and independently measured of relative distance and velocity. The operation freq is 100ms ie. one sweep takes 100ms and post that all the data is published over CAN at once. Radar can give a raw 4D point cloud or tracked object position and velocity based on internal fusion (but not both, needs parameter configuration). We are using tracked objects.
+
+Distance
+*Resolution is 0.1m  
+*Precision is +-0.05m
+Speed
+*Range +-18m/s   
+*Speed ratio 0.25m/s   
+*Precision +- 0.12m/s
+
+Additionally radar gives radar cross section values, these can be used to filter the ghost objects. A RCS threshold value of 50 worked for us (glass and other penetrable object have low rcs)
+
+Radar uses CANFD because of high rate of transmission at end of each cycle. For reading raw 4D points the read buffer should be very high, atleast ~2000. The CANFD radar driver code is linked here.
+
+### Steering model
+
+The steering dynamics are as shown
+{{< figure
+  src="images/steering_step_pos.png"
+  alt="steering_step_position"
+  caption="Steering actuator response to step input command, as you can observe its a PID with input saturation"
+>}}
+
+{{< figure
+  src="images/steering_step.png"
+  alt="steering_step_velocity"
+  caption="Steering actuator response to step input velocity command, as you can observe its a perfect linear response with almost no delay"
+>}}
+
+Now there is option either to model the PID response using a first order system, by calculating gain and time constant then while optimizing apply a saturation filter.
+
+OR
+
+Directly use the velocity commands to control the steering. In my case, there is a MPC with bicycle model and since its MPC I can easily add constraints hence making the steering rate the actuation command is better choice. 
+
+### Vehicle modeling
+
+Model fitting:
+From the motor and controller operation details, we know that powertrain's torque generation capacity is limited by limits on reference, hence we are likely to observe a linear ramp of predetermined slope with some initial delay (actuation delay and delay to ramp higher than rolling friction) for acceleration and similar for braking. So this is not same as classical modeling methods where we try to fit 1st order system or similar using time constants and gain.
+
+This would mean - identifying time delay, and the ramp rate, now the ramp could be defined in terms of acceleration of time ie. ramp is constant of 1m/s3 or delta setpoint takes 0.5 seconds (notice its not unit delta, its any delta applied by the user). Additionally have to identify the rate of decay originating from rolling resistance and other drag forces on the vehicle (which again for low speed is const for given mass of vehicle).
+
+Delay is the next major part, the delay for the model involves time from issuing the command (time or publishing the command as rostopics) to the time where the vehicle response is recorded (feedback recorded in rostopic) - IMU showing corresponding increase in velocity (can be change in vehicle odometry reading too).
+
+{{< figure
+  src="images/step_inputs.png"
+  alt="step_inputs"
+  caption="step input for throttle, out of which time delta is observed."
+>}}
+
+| Time delta |  | | | | Average |
+|------|------|------|------|------|------|
+| From stationary | 1.353 | 1.202 | 1.266 | 1.083 | 1.226 |
+| During movement | 0.802 | 0.902 | 0.752 | 0.852 | 0.827 |
+
+| Ramp rates | values |
+|------|------|
+| Acceleration rate |  1m/s3 |
+| Deceleration rate | 2.5m/s3 |
+
 
 -------------------------------------------
 
