@@ -1,6 +1,9 @@
 ---
 title: "Harshin's Builds"
 ---
+<style>
+  .entry-content p { text-align: justify; }
+</style>
 
 <div style="text-align: center; margin-bottom: 50px;">
 <img src="/har.github.io/images/Harshin.jpeg" width="180"
@@ -38,7 +41,7 @@ A guide on converting a standard vehicle into a fully drive-by-wire autonomous p
 <footer class="entry-footer">
 <span>February 10, 2026</span>&nbsp;·&nbsp;<span>19 min</span>
 </footer>
-<a class="entry-link" aria-label="post link to Step 1 to Autonomy" href="posts/hello-world/"></a>
+<a class="entry-link" aria-label="post link to Step 1 to Autonomy" href="posts/autonomy/"></a>
 </article>
 </div>
 
@@ -60,6 +63,6 @@ Exploring Ground Effect vehicles and Hydro-based systems. Focused on high-speed 
 <footer class="entry-footer">
 <span>February 14, 2026</span>&nbsp;·&nbsp;<span>21 min</span>
 </footer>
-<a class="entry-link" aria-label="post link to Hydrodynamics" href="posts/high-speed-hydrodynamics/"></a>
+<a class="entry-link" aria-label="post link to Hydrodynamics" href="posts/hydrodynamics/"></a>
 </article>
 </div>

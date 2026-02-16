@@ -5,6 +5,11 @@ draft: false
 math: true
 ---
 
+<style>
+  .post-content p { text-align: justify; text-justify: inter-word; }
+</style>
+
+
 ## What's in here
 Step 1 is to understand the platform you are working with; this article is for those trying to convert a standard vehicle into an autonomous vehicle for research or testing. I would share ideas on how I approached the problem and the alternatives I found, along with good references.
 
@@ -151,9 +156,13 @@ Gear drive
 I chose a gear drive with a 1:1 gear ratio because our actuator could give more torque than required.
 Mounts were designed to keep optimal radial loading on the gears. This was a retrofit gear assembly designed and manufactured using laser cutting, metal bushing, machining, welding, and 3D printing. The pre-loading required for the gear assembly is managed by washers at the bolted joints; the thickness of the mild steel plate is chosen accordingly (based on bending moment calculations for the given tip displacement). The design resulted in a stable and rugged system.
 
-<div style="display:flex; gap:20px; justify-content:center;">
-  {{< figure src="images/steering_cad.png" alt="Steering actuator" >}}
-  {{< figure src="images/cad2.png" alt="Steering actuator" >}}
+<div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/steering_cad.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="images/cad2.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
+  </div>
 </div>
 
 <p style="text-align:center;">

@@ -4,6 +4,11 @@ date = 2026-02-14T11:21:33+05:30
 draft = false
 +++
 
+<style>
+  .post-content p { text-align: justify; text-justify: inter-word; }
+</style>
+
+
 This article series explains how I made the ground-effect UAV take off from water. In general, high-speed hydrodynamics lack modern resources. This article would be a small contribution from my side.
 
 Making a plane take off from water is more complicated than making a fast boat and a fast plane. This isn't a vertical-lift-off UAV, and the runway is chaotic.
@@ -15,9 +20,13 @@ There is significantly less literature in high-speed hydrodynamics; the literatu
 ## Prismatic Hull
 Hence, I will start with the key learning from this paper, with the objective of understanding the limits. The paper primarily focuses on the force balance and the formation of the wetted surface. How is the pressure distribution and resulting drag, buoyancy, and moments on the moving hull?
 
-<div style="display:flex; gap:20px; justify-content:center;">
-  {{< figure src="images/hull_force_balance_simple.png" alt="Force balance with Normal force from water, thrust, drag, and weight" >}}
-  {{< figure src="images/hull_force_balance.png" alt="Moment balance on CG for a given trim" >}}
+<div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
+<div style="flex: 1; text-align: center;">
+  <img src="images/hull_force_balance_simple.png" alt="Force balance with Normal force from water, thrust, drag, and weight" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
+<div style="flex: 1; text-align: center;">
+  <img src="images/hull_force_balance.png" alt="Moment balance on CG for a given trim" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
 </div>
 
 <p style="text-align:center;">
@@ -49,30 +58,38 @@ First, we look at how the pressure is distributed when a flat plate moves throug
   src="images/flat_plate_pressure_distribution.png"
   alt="Flat plate pressure distribution."
   caption="Pressure distribution along a flat plate moving through the water surface."
->}}
+  width="85%"
+  >}}
 
 Now, to understand the structure of the hull and some naming, we look at how a prismatic hull's wetted surface area looks.
 {{< figure
   src="images/pris_hull_naming_water_level.png"
   alt="Wetted surface of a prismatic hull."
   caption="A prismatic hull's wetted surface area while moved through water at a trim angle is shown here. "
->}}
+  width="85%"
+  >}}
 
 Now we need to understand how water flows through the hull's wetted surface and how spray forms.
 {{< figure
   src="images/hull_spray_characteristic.png"
   alt="Prismatic hulls wetted area and spray."
   caption="Initially, the water has high momentum and velocity. On contact, the spray rises from the spray root, and a pressure difference arises at the surface of the hull and water, which sucks water into the surface and carries it towards the end of the chine, causing the transverse flow."
->}}
+  width="85%"
+  >}}
 
 The suction force created at the interface of the water and hull is the reason boats can't fly using wings. We will discuss this.
 
 The normal force can be found by mapping the water-contact pressure. The paper separates normal forces into dynamic and buoyancy forces, with dynamic forces assumed to have a center of pressure at 75% of the mean wetted area (inspired by the flat-plate pressure distribution), and buoyancy's COP assumed at 33% from the transom. Now, these values give a good match to the test data and the empirical formula, but once you deviate from the prismatic shape, you should modify these values depending on the shape. Based on this generalization, forces can be empirically found for a given trim angle and hull parameters in the paper. Do check out the paper for the formulas and charts.
 
 The Normal force has 2 components: lift and drag (this normal force includes buoyancy forces, and in the paper they are derived as fractions of buoyancy).
-<div style="display:flex; gap:20px; justify-content:center;">
-  {{< figure src="images/planning_surface_drag_non_viscous.png" alt="Normal force for non-viscous fluid interaction" >}}
-  {{< figure src="images/planning_surface_drag.png" alt="Normal force along with viscous drag from water" >}}
+
+<div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
+<div style="flex: 1; text-align: center;">
+  <img src="images/planning_surface_drag_non_viscous.png" alt="Normal force for non-viscous fluid interaction" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
+<div style="flex: 1; text-align: center;">
+  <img src="images/planning_surface_drag.png" alt="Normal force along with viscous drag from water" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
 </div>
 
 <p style="text-align:center;">
@@ -96,7 +113,8 @@ The conclusion is that this is the best drag/lift ratio any fast-moving shape in
   src="images/drag_components.png"
   alt="Components of the drag for prismatic hull."
   caption="At low speeds, viscous drag is much higher because of higher wetted surface area, and the pressure drag takes over."
->}}
+  width="85%"
+  >}}
 
 @note - There is an important concept of hump drag in high-speed hydrodynamics, which happens at Frude number of ~0.5-0.7 and characterises the transition from displacement mode (the hull smoothly cutting through water) or buoyancy lift to planning mode (where the hull rides on top of water) or majority dynamic lift. Essentially, at a specific speed range, the hull has to ride through the waves created by itself (bow interaction), which increases drag considerably.
 
@@ -113,7 +131,8 @@ In here, the metacentre is the position along a line perpendicular to the waterl
   src="images/lat_stability.png"
   alt="transverse stability for general submerged body."
   caption="Any body that has more buoyancy than weight can float in water, but there is a specific condition to keep it floating upright. According to the picture, the body's metacentre should be higher than the CG."
->}}
+  width="85%"
+  >}}
 
 Looking at the picture, try to think when the body would be in unstable equilibrium, and what the range of stable equilibrium is. That's all there is.
 
@@ -125,7 +144,8 @@ Now, if you keep something at the very tip of the wing, structurally it's a bad 
   src="images/elsevier-seaplane-floats.png"
   alt="Floats on seaplane."
   caption="Position of floats on a seaplane."
->}}
+  width="85%"
+  >}}
 
 The floats are mounted higher than the keel, so as to avoid contact with water at higher speeds and thus reduce drag. But it should be deep enough that we meet the transverse stability criteria. Also, floats should have a planing bottom to furnish dynamic lift even while fully submerged.
 
@@ -150,9 +170,13 @@ This paper presents extensive test results on drag and moments in water and aero
 Instrumentation details
 - Stevens Institute is very well known for its experiments on seaplane designs. And it's an honor to present my work to [Prof. Raju](https://www.stevens.edu/profile/rdatla) who is leading the towing tank testing.
 
-<div style="display:flex; gap:20px; justify-content:center;">
-  {{< figure src="images/towing_tank_pic.avif" alt="Towing tank from Davidson laboratory" >}}
-  {{< figure src="images/towing_tank_symantic.png" alt="Symantic representation of towing tank setup" >}}
+<div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
+<div style="flex: 1; text-align: center;">
+  <img src="images/towing_tank_pic.png" alt="Towing tank from Davidson laboratory" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
+<div style="flex: 1; text-align: center;">
+  <img src="images/towing_tank_symantic.png" alt="Symantic representation of towing tank setup" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
 </div>
 
 <p style="text-align:center;">
@@ -190,7 +214,8 @@ $d$: Draft at main step, measured in feet.
   src="images/seaplane_cg_var.png"
   alt="How does the variation of cg affect the drag"
   caption="Variation of drag as the CG location is changed along longitudinal axis."
->}}
+  width="85%"
+  >}}
 
 - As you can notice, there are trim values and resistance values for the speed coefficient up to 4. This is not where takeoff happens
 - The trim values here are the free trim, ie, the hull is pivoted on the CG while testing, and after the hydrodynamics moment balance, the hull stabilizes itself at this trim. The idea is that the speed is so low that aerodynamic forces can't control the trim at this velocity.
@@ -204,14 +229,16 @@ After each section, extensive images are presented to show the spray characteris
   src="images/seaplane_stern_spray.png"
   alt="How the stern height change causes spray."
   caption="Spray from the aft of the hull as the stern height is changed. Have a careful look and think about where the wings would come."
->}}
+  width="85%"
+  >}}
 
 Bow waves are a major hurdle to propeller placement, and, like conventional planes, they can't be placed at wing level. Just because of the spray, they have to be high-mounted and still designed to ingest spray.
 {{< figure
   src="images/seaplane_bow_spray.png"
   alt="How the bow shape change causes spray."
   caption="Spray from the bow of the hull arises at low speeds. These water splashes will be in front of the propellers if they are mounted on wings, and propellors suction will pull them in."
->}}
+  width="85%"
+  >}}
 
 Post this section on page 74: there is a new set of studies that go further, from the speed coefficient of 4.5 to 9, where the plane takes off.
 - This is a more detailed study, and each graph set you see has a $C_V$ written on top. Resistance and moments are studied as a function of speed, weight, and trim.
@@ -227,19 +254,25 @@ I have tested Bow 2B, stern 2C and 4.
   src="images/seaplane_stern_2_drawing.png"
   alt="Drawing for seaplane stern."
   caption="The drawing for hull stern, it is as complicated as it looks, and I would strongly advise against using conventional ship drawing tools. Just trace the drawings out in CAD software like SolidWorks or Fusion360."
->}}
+  width="85%"
+  >}}
 
 {{< figure
   src="images/seaplane_bow_2B_drawing.png"
   alt="Drawing for seaplane bow."
   caption="The drawing for hull bow."
->}}
+  width="85%"
+  >}}
 
 After making these drawings into CAD, this is how they look.
 
-<div style="display:flex; gap:20px; justify-content:center;">
-  {{< figure src="images/seaplane_cad_bottomview.png" alt="Bottom view of the hull" >}}
-  {{< figure src="images/seaplane_cad_topview.png" alt="Top view of the hull" >}}
+<div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="images/seaplane_cad_bottomview.png" alt="Bottom view of the hull" style="width: 100%; height: auto; border-radius: 8px;">
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="images/seaplane_cad_topview.png" alt="Top view of the hull" style="width: 100%; height: auto; border-radius: 8px;">
+  </div>
 </div>
 
 <p style="text-align:center;">
@@ -260,7 +293,8 @@ First, we should be asking why a prismatic hull can't fly. The answer lies in ve
   src="images/stepped_hull_force_moments.png"
   alt="Stepped hull force and moments."
   caption="Force and moment balance for stepped hull."
->}}
+  width="85%"
+  >}}
 
 There are 2 planning surfaces for a stepped hull. The forebody can be treated very similarly to a prismatic hull, but the aft body rides on the wave created by the forebody, and the waterline is below the undisturbed water level. Now, these surfaces can be considered 2 individuals with differences in the surrounding water conditions. The aft part of the hull has an angle relative to the horizontal, called the stern post angle.
 
@@ -285,7 +319,8 @@ The landing sequence is the reverse of the takeoff for a perfect landing on smoo
   src="images/landing_impact.png"
   alt="variation of draft and reaction force on impact."
   caption="Change of draft and impact force due to landing."
->}}
+  width="85%"
+  >}}
 
 @note - most of the landing impact and rebound dynamics happens only at step, and prismatic hull approximation hold realistic.
 
@@ -296,7 +331,8 @@ There are 2 significant instability conditions, namely porpoising and skipping (
   src="images/porpoising.png"
   alt="porpoising of seaplane."
   caption="Porpoising of seaplane, this is a high frequency phugoid motion with aoa variation and is catastrophic."
->}}
+  width="85%"
+  >}}
 
 Skipping is a heave oscillation observed during landing.
 
@@ -335,7 +371,8 @@ Regent hydrofoil is a great masterpiece.
   src="images/regent_main_hydrofoil_mechanism.png"
   alt="Regent's front hydrofoil mechanism."
   caption=" The hydrofoil mechanism, picture is taken from the Regents patent filing document."
->}}
+  width="85%"
+  >}}
 
 The string marked in yellow rotates the pulley marked in yellow, which through a belt drive, rotates the gears attached to the screw drive linear actuator. The linear actuator pulls the hydrofoil up/down. Do notice that there are no flaps on the main foil. Watch the  SailGp tech video to have a good look at titanium-made hydrofoils, how long, smooth, and sharp they are. Also, notice the spray from SailGp boats.
 
@@ -343,14 +380,16 @@ The string marked in yellow rotates the pulley marked in yellow, which through a
   src="images/regent_hydrofoil_side_view.png"
   alt="Regent's rear hydrofoil mechanism."
   caption=" The rear hydrofoil has control over the flaps and can retract, picture is taken from the Regents patent filing document."
->}}
+  width="85%"
+  >}}
 
 Spray from the hydrofoil on a seaplane.
 {{< figure
   src="images/hydrofoil_water_spray.png"
   alt="Spray around the plane."
   caption="The spray rises high and touches the wings, causing a reduction in lift during takeoff and higher drag."
->}}
+  width="85%"
+  >}}
 
 
 ## The proto

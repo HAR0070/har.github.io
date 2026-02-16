@@ -34,7 +34,10 @@ Doing it though CFD &amp;ndash; too costly &amp;ndash;  explain what you underst
       <link>http://localhost:1313/har.github.io/posts/hydrodynamics/</link>
       <pubDate>Sat, 14 Feb 2026 11:21:33 +0530</pubDate>
       <guid>http://localhost:1313/har.github.io/posts/hydrodynamics/</guid>
-      <description>&lt;p&gt;This article series explains how I made the ground-effect UAV take off from water. In general, high-speed hydrodynamics lack modern resources. This article would be a small contribution from my side.&lt;/p&gt;
+      <description>&lt;style&gt;
+  .post-content p { text-align: justify; text-justify: inter-word; }
+&lt;/style&gt;
+&lt;p&gt;This article series explains how I made the ground-effect UAV take off from water. In general, high-speed hydrodynamics lack modern resources. This article would be a small contribution from my side.&lt;/p&gt;
 &lt;p&gt;Making a plane take off from water is more complicated than making a fast boat and a fast plane. This isn&amp;rsquo;t a vertical-lift-off UAV, and the runway is chaotic.
 There is a long American story of why Russians failed, how NASA tried to make a blue whale, which never got out of paper &lt;a href=&#34;https://drive.google.com/file/d/1-fZBEmZvyxrRGafyKTTqvci3ul463WaA/view?usp=sharing&#34;&gt;LINK&lt;/a&gt;
 A few companies that make GE planes are Poseidon; the next closest is Regent.&lt;/p&gt;</description>
@@ -44,7 +47,10 @@ A few companies that make GE planes are Poseidon; the next closest is Regent.&lt
       <link>http://localhost:1313/har.github.io/posts/autonomy/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/har.github.io/posts/autonomy/</guid>
-      <description>&lt;h2 id=&#34;whats-in-here&#34;&gt;What&amp;rsquo;s in here&lt;/h2&gt;
+      <description>&lt;style&gt;
+  .post-content p { text-align: justify; text-justify: inter-word; }
+&lt;/style&gt;
+&lt;h2 id=&#34;whats-in-here&#34;&gt;What&amp;rsquo;s in here&lt;/h2&gt;
 &lt;p&gt;Step 1 is to understand the platform you are working with; this article is for those trying to convert a standard vehicle into an autonomous vehicle for research or testing. I would share ideas on how I approached the problem and the alternatives I found, along with good references.&lt;/p&gt;
 &lt;p&gt;This work primarily focuses on translating hardware systems to seamlessly interface with software, specifically in the context of electric cars.
 Starting with a basic understanding of the electric vehicle powertrain, to implementing a software backbone that enables the vehicle to track a reference trajectory, with a provision for user-safety override.&lt;/p&gt;</description>
