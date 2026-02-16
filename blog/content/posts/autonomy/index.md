@@ -326,17 +326,19 @@ On applying simple jerk limit filter
 
 ### Radar data
 We are using a SR75 radar, which is a high-precision FMCW radar. The radar emits a continuous radio signal, sweeping its frequency linearly (chirp) over a time period. Unlike pulsed radar.
-*Beat frequency formed by delayed echo gives the range
-*Doppler shift gives the velocity
+* Beat frequency formed by delayed echo gives the range
+* Doppler shift gives the velocity
+
 These are simultaneous and independently measured of relative distance and velocity. The operation freq is 100ms ie. one sweep takes 100ms and post that all the data is published over CAN at once. Radar can give a raw 4D point cloud or tracked object position and velocity based on internal fusion (but not both, needs parameter configuration). We are using tracked objects.
 
 Distance
-*Resolution is 0.1m  
-*Precision is +-0.05m
+* Resolution is 0.1m  
+* Precision is +-0.05m
+
 Speed
-*Range +-18m/s   
-*Speed ratio 0.25m/s   
-*Precision +- 0.12m/s
+* Range +-18m/s   
+* Speed ratio 0.25m/s   
+* Precision +- 0.12m/s
 
 Additionally radar gives radar cross section values, these can be used to filter the ghost objects. A RCS threshold value of 50 worked for us (glass and other penetrable object have low rcs)
 

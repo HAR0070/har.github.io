@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Bob the builder on Builds</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content in Bob the builder on Builds</description>
+    <title>Harshin&#39;s Builds on Builds</title>
+    <link>http://localhost:1313/har.github.io/</link>
+    <description>Recent content in Harshin&#39;s Builds on Builds</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Feb 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Feb 2026 11:27:34 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/har.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autonomy2</title>
+      <link>http://localhost:1313/har.github.io/posts/autonomy2/</link>
+      <pubDate>Mon, 16 Feb 2026 11:27:34 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/autonomy2/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GE_systems</title>
+      <link>http://localhost:1313/har.github.io/posts/ge_systems/</link>
+      <pubDate>Mon, 16 Feb 2026 02:08:21 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/ge_systems/</guid>
+      <description>&lt;h2 id=&#34;cfd&#34;&gt;CFD&lt;/h2&gt;
+&lt;p&gt;CFD - airfoil, drag prediction workshop, windtunnel-CFD cad and windtunnel setup. (learned from Barbra group github page)&lt;/p&gt;
+&lt;p&gt;XFLR5 author has putout the simplest pictorial explanation for static stability, I recommend having a look - &lt;a href=&#34;https://www.xflr5.tech/docs/XFLR5_and_Stability_analysis.pdf&#34;&gt;LINK&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The final integration of all concepts.&lt;/p&gt;
+&lt;p&gt;Basics of ground effect &amp;ndash; Rodroviz book - formulation
+Potential flow based ground effect solver  - Barbra group&lt;/p&gt;
+&lt;p&gt;VSP aero and XFLR5 - sweeping study on wing, scripts to mathematically optimize wing for cruise condition with limits on takeoff, landing and other limits flight envelop.
+Doing it though CFD &amp;ndash; too costly &amp;ndash;  explain what you understood.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>High speed hydrodynamics</title>
+      <link>http://localhost:1313/har.github.io/posts/hydrodynamics/</link>
+      <pubDate>Sat, 14 Feb 2026 11:21:33 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/hydrodynamics/</guid>
+      <description>&lt;p&gt;This article is about how I made the ground effect UAV takeoff from water. I have in general found high speed hydrodynamics lack modern resources. This would be a small contribution from my side.&lt;/p&gt;
+&lt;p&gt;Making a plane take off from water is harder than making a fast boat and a fast plane. This isn&amp;rsquo;t a vertical lift off UAV, and on top runway is chaotic.
+There is a huge story of why Russians didn&amp;rsquo;t succeed, how NASA tried to make a blue whale - which never got out of paper &lt;a href=&#34;https://drive.google.com/file/d/1-fZBEmZvyxrRGafyKTTqvci3ul463WaA/view?usp=sharing&#34;&gt;LINK&lt;/a&gt;
+Few companies making GE planes are poseidon, next closest is Regent.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Step1 to Autonomy</title>
-      <link>http://localhost:1313/posts/hello-world/</link>
+      <link>http://localhost:1313/har.github.io/posts/autonomy/</link>
       <pubDate>Tue, 10 Feb 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/hello-world/</guid>
+      <guid>http://localhost:1313/har.github.io/posts/autonomy/</guid>
       <description>&lt;h2 id=&#34;whats-in-here&#34;&gt;Whats in here&lt;/h2&gt;
 &lt;p&gt;The step 1 is to understand the platform you are working with; this article is for those who are trying to convert a normal vehicle to an autonomous vehicle for research/testing purposes. I would be sharing ideas on how I approached the problem and alternatives with good references I found along the way.&lt;/p&gt;
 &lt;p&gt;This work is majorly on translating hardware systems to seamlessly interface with software, specifically in context of electric cars.
