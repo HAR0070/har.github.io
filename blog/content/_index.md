@@ -8,7 +8,7 @@ style="display:block; margin:40px auto; border-radius:50%;">
 <h1>Harshin</h1>
 
 <p style="margin-bottom: 20px;">
-Autonomous systems engineer focused on NPD, System Integration, and mechanical and electrical design architecture.
+Autonomous systems engineer focused on NPD, System Integration and design architecture.
 </p>
 
 <div style="display: inline-block; text-align: left;">
