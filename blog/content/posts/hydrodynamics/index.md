@@ -33,20 +33,20 @@ Hence, I will start with the key learning from this paper, with the objective of
 Force and moment balance through the CG
 </p>
 
-$L_k$: Wetted keel length
-$L_c$: Wetted chine length
-$LCG$: Longitudinal distance of center of gravity from transom (measured along keel)
-$V$: Horizontal velocity of planing surface
-$\Delta$: Load on water
-$T$: Propeller thrust
-$N$: Force normal to the bottom
-$D_f$: Frictional drag-force component along bottom surface
-$a$: Distance between $D_f$ and CG (measured normal to $D_f$)
-$f$: Distance between $T$ and CG (measured normal to $T$)
-$c$: Distance between $N$ and CG (measured normal to $N$)
-$d$: Vertical depth of trailing edge of boat (at keel) below the level water surface
-$\tau$: Trim angle of planing area
-$\epsilon$: Inclination of thrust line relative to keel line
+*L<sub>k</sub>*: Wetted keel length  
+*L<sub>c</sub>*: Wetted chine length  
+*LCG*: Longitudinal distance of center of gravity from transom (measured along keel)  
+*V*: Horizontal velocity of planing surface  
+Δ: Load on water  
+*T*: Propeller thrust  
+*N*: Force normal to the bottom  
+*D<sub>f</sub>*: Frictional drag-force component along bottom surface  
+*a*: Distance between *D<sub>f</sub>* and CG (measured normal to *D<sub>f</sub>*)  
+*f*: Distance between *T* and CG (measured normal to *T*)  
+*c*: Distance between *N* and CG (measured normal to *N*)  
+*d*: Vertical depth of trailing edge of boat (at keel) below the level water surface  
+τ: Trim angle of planing area  
+ε: Inclination of thrust line relative to keel line
 
 As with all mechanics problems, we start by identifying all the forces and moments by drawing a free-body diagram. We will compute the magnitude of each as we go. The weight and thrust forces are obvious ones. If you didn't understand all the naming, don't worry, and tag along for the next section.
 
@@ -98,11 +98,11 @@ Components of the normal force into drag and lift. Understanding this picture wi
 
 The general formulation of drag and lift is very similar to that of aerodynamics.
 
-$$Force = k \times \frac{1}{2} \rho V^2 L^2 $$
+Force = k × 1/2 ρ V<sup>2</sup> L<sup>2</sup>
 
-The constant depends on $f\left(\frac{VL}{\nu}\right)$  reynolds number, $F\left(\frac{V}{\sqrt{gL}}\right)$ froude number and  $\varphi\left(\frac{V^2L}{\sigma/\rho}\right)$ weber number. In practice, it's obtained through a test or CFD. The characteristic length is generally the beam (width of the hull) or volume^1/3.
+The constant depends on f(VL/ν) reynolds number, F(V/√(gL)) froude number and  φ(V<sup>2</sup>L / (σ/ρ)) weber number. In practice, it's obtained through a test or CFD. The characteristic length is generally the beam (width of the hull) or volume<sup>1/3</sup>.
 
-The paper derives a closed-form equation for $C_l$ and $C_d$ for a prismatic hull. There are Reynolds number-based corrections to account for changes in frictional resistance due to boundary layer thickness (smaller hulls have a higher frictional component ratio).
+The paper derives a closed-form equation for *C<sub>l</sub>* and *C<sub>d</sub>* for a prismatic hull. There are Reynolds number-based corrections to account for changes in frictional resistance due to boundary layer thickness (smaller hulls have a higher frictional component ratio).
 
 Moment balance has another central decision-maker, and that is the trim angle.
 
@@ -118,7 +118,7 @@ The conclusion is that this is the best drag/lift ratio any fast-moving shape in
 
 @note - There is an important concept of hump drag in high-speed hydrodynamics, which happens at Frude number of ~0.5-0.7 and characterises the transition from displacement mode (the hull smoothly cutting through water) or buoyancy lift to planning mode (where the hull rides on top of water) or majority dynamic lift. Essentially, at a specific speed range, the hull has to ride through the waves created by itself (bow interaction), which increases drag considerably.
 
-@note - Always look out for $C_V$ definitions and units. It's a normalizer for hull lift and drag coefficients and can be defined based on the beam or (load on water) ^1/3.
+@note - Always look out for *C<sub>V</sub>* definitions and units. It's a normalizer for hull lift and drag coefficients and can be defined based on the beam or (load on water) ^1/3.
 
 Although these formulas are heavily dependent on test results, they have significant value as benchmarks. If you do CFD, you would know that usually all the settings for mesh and solvers are determined using validation resources from NASA Langley Research Center - Turbulence Modeling Resource [LINK](https://turbmodels.larc.nasa.gov/naca0012_val.html) for NACA 0012 airfoil (or high lift with flaps) or from drag prediction workshop or high lift workshop results as references. But there is nothing similar for hydrodynamics, multiphase interactions, or anything close (nor anything for ground-effect flights). This prismatic hull serves as the best reference available to calibrate the CFD. You shouldn't believe any CFD results that aren't calibrated against a physical experiment.
 
@@ -194,21 +194,21 @@ Fixed trim test - the following values are measured.
 * resistance values
 
 Coefficients
-$C_\Delta$ (Load Coefficient): Defined as $\Delta/wb^3$.
-$C_R$ (Resistance Coefficient): Defined as $R/wb^3$.
-$C_V$ (Speed Coefficient): Defined as $V/\sqrt{gb}$.
-$C_M$ (Trimming-Moment Coefficient): Defined as $M/wb^4$.
-$C_d$ (Draft Coefficient): Defined as $d/b$.
+*C<sub>Δ</sub>* (Load Coefficient): Defined as Δ/wb<sup>3</sup>.
+*C<sub>R</sub>* (Resistance Coefficient): Defined as R/wb<sup>3</sup>.
+*C<sub>V</sub>* (Speed Coefficient): Defined as V/√(gb).
+*C<sub>M</sub>* (Trimming-Moment Coefficient): Defined as M/wb<sup>4</sup>.
+*C<sub>d</sub>* (Draft Coefficient): Defined as d/b.
 
 Variables
-$\Delta$: Load on water, measured in pounds.
-$w$: Specific weight of water, measured in pounds per cubic foot (63.3 for these tests; usually taken as 64 for seawater).
-$b$: Maximum beam, measured in feet.
-$R$: Resistance, measured in pounds.
-$V$: Speed, measured in feet per second.
-$g$: Acceleration of gravity, 32.2 feet per second squared.
-$M$: Trimming moment, measured in pound-feet.
-$d$: Draft at main step, measured in feet.
+Δ: Load on water, measured in pounds.
+*w*: Specific weight of water, measured in pounds per cubic foot (63.3 for these tests; usually taken as 64 for seawater).
+*b*: Maximum beam, measured in feet.
+*R*: Resistance, measured in pounds.
+*V*: Speed, measured in feet per second.
+*g*: Acceleration of gravity, 32.2 feet per second squared.
+*M*: Trimming moment, measured in pound-feet.
+*d*: Draft at main step, measured in feet.
 
 {{< figure
   src="images/seaplane_cg_var.png"
@@ -220,8 +220,8 @@ $d$: Draft at main step, measured in feet.
 - As you can notice, there are trim values and resistance values for the speed coefficient up to 4. This is not where takeoff happens
 - The trim values here are the free trim, ie, the hull is pivoted on the CG while testing, and after the hydrodynamics moment balance, the hull stabilizes itself at this trim. The idea is that the speed is so low that aerodynamic forces can't control the trim at this velocity.
 - Notice the shape of the curve, how the trim and resistance increase simultaneously in the shape of a hump.
-- $C_\Delta$ is the weight coefficient, as you can see as $C_\Delta$  double resistance increase almost 3 times.
-- If you look at the values of the  $C_\Delta$ /$C_R$, you will notice it comes out to be L/D and its around 6.6 for $C_\Delta$ = 0.4) and 4.4 for $C_\Delta$  = 0.8. This is the point of maximum thrust.
+- *C<sub>Δ</sub>* is the weight coefficient, as you can see as *C<sub>Δ</sub>* double resistance increase almost 3 times.
+- If you look at the values of the  *C<sub>Δ</sub>* / *C<sub>R</sub>*, you will notice it comes out to be L/D and its around 6.6 for *C<sub>Δ</sub>* = 0.4) and 4.4 for *C<sub>Δ</sub>* = 0.8. This is the point of maximum thrust.
 
 After each section, extensive images are presented to show the spray characteristics of that particular change. These images are vital for understanding spray characteristics, which will significantly impact wings and propellers. And very soon, spray will be a significant hurdle to take off.
 
@@ -241,7 +241,7 @@ Bow waves are a major hurdle to propeller placement, and, like conventional plan
   >}}
 
 Post this section on page 74: there is a new set of studies that go further, from the speed coefficient of 4.5 to 9, where the plane takes off.
-- This is a more detailed study, and each graph set you see has a $C_V$ written on top. Resistance and moments are studied as a function of speed, weight, and trim.
+- This is a more detailed study, and each graph set you see has a *C<sub>V</sub>* written on top. Resistance and moments are studied as a function of speed, weight, and trim.
 - This is different from the earlier graphs shown for the fixed trim region.
 - Depending on the plane's trim and weight, as speed increases, you need to look across graphs for resistance and moments.
 

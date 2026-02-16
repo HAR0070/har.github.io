@@ -157,12 +157,12 @@ I chose a gear drive with a 1:1 gear ratio because our actuator could give more 
 Mounts were designed to keep optimal radial loading on the gears. This was a retrofit gear assembly designed and manufactured using laser cutting, metal bushing, machining, welding, and 3D printing. The pre-loading required for the gear assembly is managed by washers at the bolted joints; the thickness of the mild steel plate is chosen accordingly (based on bending moment calculations for the given tip displacement). The design resulted in a stable and rugged system.
 
 <div style="display:flex; gap:20px; justify-content:center; margin-bottom: 20px;">
-  <div style="flex: 1; text-align: center;">
-    <img src="images/steering_cad.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
-  </div>
-  <div style="flex: 1; text-align: center;">
-    <img src="images/cad2.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
-  </div>
+<div style="flex: 1; text-align: center;">
+  <img src="images/steering_cad.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
+<div style="flex: 1; text-align: center;">
+  <img src="images/cad2.png" alt="Steering actuator" style="width: 100%; height: auto; border-radius: 8px;">
+</div>
 </div>
 
 <p style="text-align:center;">
