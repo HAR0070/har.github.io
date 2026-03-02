@@ -13,6 +13,7 @@ minify:
   minifyOutput: true
 
 params:
+  author: "Harshin N"
   env: production
   title: "Step1 to Autonomous cars"
   description: "This work is about converting any normal vehicle to fully drive by wire and make it follow a reference trajectory"
