@@ -2,13 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://har0070.github.io/har.github.io/</loc>
-    <lastmod>2026-02-14T11:21:33+05:30</lastmod>
+    <loc>https://har0070.github.io/har.github.io/posts/autodrive/</loc>
+    <lastmod>2026-02-28T21:06:05+05:30</lastmod>
   </url><url>
-    <loc>https://har0070.github.io/har.github.io/posts/hydrodynamics/</loc>
-    <lastmod>2026-02-14T11:21:33+05:30</lastmod>
+    <loc>https://har0070.github.io/har.github.io/posts/vnav/</loc>
+    <lastmod>2026-02-28T21:11:41+05:30</lastmod>
+  </url><url>
+    <loc>https://har0070.github.io/har.github.io/posts/plane/</loc>
+    <lastmod>2026-02-28T21:12:14+05:30</lastmod>
+  </url><url>
+    <loc>https://har0070.github.io/har.github.io/posts/raftar/</loc>
+    <lastmod>2026-02-28T21:11:41+05:30</lastmod>
+  </url><url>
+    <loc>https://har0070.github.io/har.github.io/</loc>
+    <lastmod>2026-02-28T21:12:14+05:30</lastmod>
   </url><url>
     <loc>https://har0070.github.io/har.github.io/posts/</loc>
+    <lastmod>2026-02-28T21:12:14+05:30</lastmod>
+  </url><url>
+    <loc>https://har0070.github.io/har.github.io/posts/hydrodynamics/</loc>
     <lastmod>2026-02-14T11:21:33+05:30</lastmod>
   </url><url>
     <loc>https://har0070.github.io/har.github.io/posts/autonomy/</loc>
