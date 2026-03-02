@@ -6,14 +6,139 @@
     <description>Recent content in Posts on Builds</description>
     <generator>Hugo -- 0.155.3</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Feb 2026 11:27:34 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 28 Feb 2026 21:12:14 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/har.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Autonomy2</title>
+      <title>Plane</title>
+      <link>http://localhost:1313/har.github.io/posts/plane/</link>
+      <pubDate>Sat, 28 Feb 2026 21:12:14 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/plane/</guid>
+      <description>&lt;h2 id=&#34;plane-flying&#34;&gt;Plane flying&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/Ocp6qKS3Chk?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;8kg-payload---36kg-mtow&#34;&gt;8Kg Payload - 36KG MTOW&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/big_plane.png&#34;
+         alt=&#34;36KG MTOW plane&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;36Kg MTOW, 8Kg payload plane&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;system-specification-from-mission-profile&#34;&gt;System specification from mission profile&lt;/h2&gt;
+&lt;p&gt;Given the mission profile, we determine the velocites and accelerations that the plane should handle
+Based on that VN diagram is made
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/VN-diagram.png&#34;
+         alt=&#34;VN diagram for plane&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Flight envelop graph - giving loadfactor for the Velocities required my mission profile&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Raftar</title>
+      <link>http://localhost:1313/har.github.io/posts/raftar/</link>
+      <pubDate>Sat, 28 Feb 2026 21:11:41 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/raftar/</guid>
+      <description>&lt;p&gt;Drivetrain&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/motor_assembly.png&#34;
+         alt=&#34;Motor brackets, shaft and sprocket&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Motor brackets, shaft and sprocket&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/drivetrain_asm.png&#34;
+         alt=&#34;Motor with limited slip differential, sprockets and eccentric plates&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Motor with limited slip differential, sprockets and eccentric plates&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/drivetrain_car.png&#34;
+         alt=&#34;Complete drivetrain assembly in car&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Complete drivetrain assembly in car&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;</description>
+    </item>
+    <item>
+      <title>Vnav</title>
+      <link>http://localhost:1313/har.github.io/posts/vnav/</link>
+      <pubDate>Sat, 28 Feb 2026 21:11:41 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/vnav/</guid>
+      <description>&lt;p&gt;Trajectory tracking&lt;/p&gt;
+&lt;p&gt;Drone racing&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/0D2leh4LvuE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;Feature tracking&lt;/p&gt;
+&lt;p&gt;GTSAM - Optimization
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/lab7_3b.png&#34;
+         alt=&#34;36KG MTOW plane&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Obtaining Position from noisy gps and IMU - using Factor graph based optimization&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Visual odometry&lt;/p&gt;
+&lt;p&gt;Slam&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Autodrive</title>
+      <link>http://localhost:1313/har.github.io/posts/autodrive/</link>
+      <pubDate>Sat, 28 Feb 2026 21:06:05 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/autodrive/</guid>
+      <description>&lt;p&gt;Steering testing&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/osQTTUzRbR0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;Can control of vehicle with feedback&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DR6qY4Aojfw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;Steering takeover&lt;/p&gt;
+&lt;h2 id=&#34;acc&#34;&gt;ACC&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DDbz3TTOP34?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/PUScRX1-7r8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;trajectory-tracking&#34;&gt;Trajectory tracking&lt;/h2&gt;
+&lt;p&gt;Webots&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Software</title>
       <link>http://localhost:1313/har.github.io/posts/autonomy2/</link>
       <pubDate>Mon, 16 Feb 2026 11:27:34 +0530</pubDate>
       <guid>http://localhost:1313/har.github.io/posts/autonomy2/</guid>
-      <description></description>
+      <description>&lt;p&gt;I will spent time to describe the architecture and gist of all the elements, then move towards algorithms&lt;/p&gt;
+&lt;p&gt;Software stack&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What are requirements&lt;/li&gt;
+&lt;li&gt;Architecture diagram and Algorithms&lt;/li&gt;
+&lt;li&gt;The why&lt;/li&gt;
+&lt;li&gt;The how&lt;/li&gt;
+&lt;li&gt;ability to expand&lt;/li&gt;
+&lt;li&gt;Webots Demo, real Demo&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Software stack, development and deployment
+ROS2 Jazzy, ubuntu 24.04 , C++ 17, Python 3.12, Webots&lt;/p&gt;
+&lt;p&gt;Major requirements of the software stack &amp;ndash;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Modular and templated&lt;/li&gt;
+&lt;li&gt;minimal middle ware dependence&lt;/li&gt;
+&lt;li&gt;Compliance to AUTOSAR C++ standards&lt;/li&gt;
+&lt;li&gt;Easily configurable&lt;/li&gt;
+&lt;li&gt;Interpretable&lt;/li&gt;
+&lt;li&gt;Good visualization and debugging&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Architecture diagram&lt;/p&gt;</description>
     </item>
     <item>
       <title>GE_systems</title>

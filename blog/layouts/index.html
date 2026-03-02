@@ -1,7 +1,44 @@
 {{ define "main" }}
-    <main class="main">
-        <div class="post-content">
-            {{ .Content }}
+  {{ .Content }}
+
+  <hr>
+
+  <div style="margin-top: 40px;">
+    <h2>📸 Project Galleries & Updates</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px;">
+
+      {{ range ((where (where .Site.RegularPages "Draft" false) "Params.is_gallery" true).ByWeight) }}
+        <div style="border: 1px solid var(--border); padding: 15px; border-radius: 8px; flex: 1 1 calc(50% - 15px); min-width: 250px; background: var(--entry);">
+          <h3 style="margin: 0 0 10px 0;">
+            <a href="{{ .Permalink }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a>
+          </h3>
+          <span style="font-size: 0.85em; color: var(--secondary);">{{ .Date.Format "January 2, 2006" }}</span>
         </div>
-    </main>
+      {{ end }}
+
+    </div>
+  </div>
+
+  <hr style="margin-top: 40px;">
+
+  <div style="margin-top: 40px;">
+    <h2>📝 Detailed Articles</h2>
+
+    {{ range where (where .Site.RegularPages "Draft" false) "Params.is_gallery" "!=" true }}
+      <article class="post-entry" style="margin-top: 20px;">
+        <header class="entry-header">
+          <h2>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </h2>
+        </header>
+        <div class="entry-content">
+          <p>{{ .Summary }}...</p>
+        </div>
+        <footer class="entry-footer">
+          <span>{{ .Date.Format "January 2, 2006" }}</span>&nbsp;·&nbsp;<span>{{ .ReadingTime }} min read</span>
+        </footer>
+      </article>
+    {{ end }}
+  </div>
+
 {{ end }}
