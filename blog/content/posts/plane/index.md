@@ -8,10 +8,6 @@ weight = 3
 
 ## Plane flying
 
-{{% comment %}}
-https://youtu.be/Ocp6qKS3Chk
-{{% /comment %}}
-
 {{< youtube Ocp6qKS3Chk >}}
 
 ## 8Kg Payload - 36KG MTOW
@@ -21,7 +17,6 @@ https://youtu.be/Ocp6qKS3Chk
   alt="36KG MTOW plane"
   caption="36Kg MTOW, 8Kg payload plane"
 >}}
-
 
 
 ## System specification from mission profile
@@ -41,10 +36,6 @@ Given the mission profile, To achieve required lift in all the scenarios - (take
 >}}
 
 Sample of wing optimization using XFLR5
-
-{{% comment %}}
-https://youtu.be/RkYkpLNP6Es
-{{% /comment %}}
 
 {{< youtube RkYkpLNP6Es >}}
 

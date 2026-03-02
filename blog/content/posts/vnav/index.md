@@ -12,10 +12,6 @@ Trajectory tracking
 
 Drone racing
 
-{{% comment %}}
-https://youtu.be/0D2leh4LvuE
-{{% /comment %}}
-
 {{< youtube 0D2leh4LvuE >}}
 
 Feature tracking
