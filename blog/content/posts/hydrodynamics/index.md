@@ -394,6 +394,7 @@ Spray from the hydrofoil on a seaplane.
 
 ## The proto
 
+{{< youtube Ocp6qKS3Chk >}}
 
 
 --------------------------------------

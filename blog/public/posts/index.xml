@@ -9,6 +9,63 @@
     <lastBuildDate>Sat, 28 Feb 2026 21:12:14 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/har.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Autodrive</title>
+      <link>http://localhost:1313/har.github.io/posts/autodrive/</link>
+      <pubDate>Sat, 28 Feb 2026 21:06:05 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/autodrive/</guid>
+      <description>&lt;p&gt;Steering testing&lt;/p&gt;
+&lt;!-- https://youtu.be/osQTTUzRbR0 --&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/osQTTUzRbR0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;Can control of vehicle with feedback&lt;/p&gt;
+&lt;!-- https://youtu.be/DR6qY4Aojfw --&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DR6qY4Aojfw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;p&gt;Steering takeover&lt;/p&gt;
+&lt;h2 id=&#34;acc&#34;&gt;ACC&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DDbz3TTOP34?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/PUScRX1-7r8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;trajectory-tracking&#34;&gt;Trajectory tracking&lt;/h2&gt;
+&lt;p&gt;Webots&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>VNAV</title>
+      <link>http://localhost:1313/har.github.io/posts/vnav/</link>
+      <pubDate>Sat, 28 Feb 2026 21:11:41 +0530</pubDate>
+      <guid>http://localhost:1313/har.github.io/posts/vnav/</guid>
+      <description>&lt;h2 id=&#34;trajectory-tracking&#34;&gt;Trajectory tracking&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/kf99aX-Vfic?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;drone-racing&#34;&gt;Drone racing&lt;/h2&gt;
+&lt;p&gt;Polynomial Trajectory generation using Euler-Lagrange method&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/0D2leh4LvuE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;feature-tracking-and-3d-3d-trajectory-reconstruction&#34;&gt;Feature tracking and 3D-3D, trajectory reconstruction&lt;/h2&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/9jtiO5mwHBo?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;h2 id=&#34;gtsam---factor-graph-optimization&#34;&gt;GTSAM - Factor graph Optimization&lt;/h2&gt;
+&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/lab7_3b.png&#34;
+         alt=&#34;Obtaining Position from noisy gps and IMU - using Factor graph based optimization&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;Obtaining Position from noisy gps and IMU - using Factor graph based optimization&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Plane</title>
       <link>http://localhost:1313/har.github.io/posts/plane/</link>
       <pubDate>Sat, 28 Feb 2026 21:12:14 +0530</pubDate>
@@ -55,62 +112,11 @@ Based on that VN diagram is made
 &lt;/figure&gt;
 
 &lt;figure&gt;
-    &lt;img loading=&#34;lazy&#34; src=&#34;images/drivetrain_car.png&#34;
+    &lt;img loading=&#34;lazy&#34; src=&#34;images/drivetrain_car.jpeg&#34;
          alt=&#34;Complete drivetrain assembly in car&#34;/&gt; &lt;figcaption&gt;
             &lt;p&gt;Complete drivetrain assembly in car&lt;/p&gt;
         &lt;/figcaption&gt;
 &lt;/figure&gt;</description>
-    </item>
-    <item>
-      <title>Vnav</title>
-      <link>http://localhost:1313/har.github.io/posts/vnav/</link>
-      <pubDate>Sat, 28 Feb 2026 21:11:41 +0530</pubDate>
-      <guid>http://localhost:1313/har.github.io/posts/vnav/</guid>
-      <description>&lt;p&gt;Trajectory tracking&lt;/p&gt;
-&lt;p&gt;Drone racing&lt;/p&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/0D2leh4LvuE?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;p&gt;Feature tracking&lt;/p&gt;
-&lt;p&gt;GTSAM - Optimization
-&lt;figure&gt;
-    &lt;img loading=&#34;lazy&#34; src=&#34;images/lab7_3b.png&#34;
-         alt=&#34;36KG MTOW plane&#34;/&gt; &lt;figcaption&gt;
-            &lt;p&gt;Obtaining Position from noisy gps and IMU - using Factor graph based optimization&lt;/p&gt;
-        &lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;Visual odometry&lt;/p&gt;
-&lt;p&gt;Slam&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Autodrive</title>
-      <link>http://localhost:1313/har.github.io/posts/autodrive/</link>
-      <pubDate>Sat, 28 Feb 2026 21:06:05 +0530</pubDate>
-      <guid>http://localhost:1313/har.github.io/posts/autodrive/</guid>
-      <description>&lt;p&gt;Steering testing&lt;/p&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/osQTTUzRbR0?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;p&gt;Can control of vehicle with feedback&lt;/p&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DR6qY4Aojfw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;p&gt;Steering takeover&lt;/p&gt;
-&lt;h2 id=&#34;acc&#34;&gt;ACC&lt;/h2&gt;
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/DDbz3TTOP34?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
-      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/PUScRX1-7r8?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
-    &lt;/div&gt;
-
-&lt;h2 id=&#34;trajectory-tracking&#34;&gt;Trajectory tracking&lt;/h2&gt;
-&lt;p&gt;Webots&lt;/p&gt;</description>
     </item>
     <item>
       <title>Software</title>
